@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generator.mapper.NineMapper">
+
+    <resultMap id="BaseResultMap" type="generator.domain.Nine">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="ec" column="ec" jdbcType="VARCHAR"/>
+            <result property="num" column="num" jdbcType="INTEGER"/>
+            <result property="day" column="day" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,ec,num,
+        day
+    </sql>
+</mapper>

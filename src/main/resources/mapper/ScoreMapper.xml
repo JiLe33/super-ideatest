@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generator.mapper.ScoreMapper">
+
+    <resultMap id="BaseResultMap" type="generator.domain.Score">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="teacher" column="teacher" jdbcType="VARCHAR"/>
+            <result property="ascore" column="ascore" jdbcType="INTEGER"/>
+            <result property="bscore" column="bscore" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,teacher,
+        ascore,bscore
+    </sql>
+    <select id="selectone" resultType="java.lang.String">
+        SELECT s.name FROM score_system.score  s GROUP BY s.name HAVING SUM(case when s.bscore = 0 then 1 else 0 end ) > (COUNT(*) / 3)
+    </select>
+</mapper>
